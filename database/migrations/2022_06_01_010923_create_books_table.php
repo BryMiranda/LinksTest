@@ -18,7 +18,7 @@ class CreateBooksTable extends Migration
             $table->text('ISBN');
             $table->text('title');
             $table->text('subtitle');
-            $table->text('status');
+            $table->boolean('status');
             $table->text('version');
             $table->integer('copies_number');
             $table->date('made_at');

@@ -17,8 +17,8 @@ class CreateBookRegistriesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('book_id');
             $table->integer('copies_quantity');
-            $table->integer('type');
-            $table->integer('motive');                
+            $table->enum("type", ["ingress", "egress"]);
+            $table->enum("motive", ["migration","damage","donation","purchase"]);
             $table->timestamps();
         });
     }
