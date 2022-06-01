@@ -9,7 +9,7 @@ class BookFeature extends Model
 {
     use HasFactory;
 
-    protected $table = 'book_tags';
+    protected $table = 'book_tag';
 
     protected $fillable = [
         'book_id',

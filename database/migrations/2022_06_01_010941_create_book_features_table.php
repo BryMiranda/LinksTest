@@ -14,9 +14,11 @@ class CreateBookFeaturesTable extends Migration
     public function up()
     {
         Schema::create('book_tag', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('book_id');
             $table->unsignedBigInteger('tag_id');
             $table->text('value');
+            $table->timestamps();
         });
     }
 
