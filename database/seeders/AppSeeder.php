@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Book;
 use App\Models\BookFeature;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Foundation\Testing\WithFaker;
 
@@ -18,6 +19,8 @@ class AppSeeder extends Seeder
      */
     public function run()
     {
+        User::factory(10)->create();
+
         $bookOne = Book::create([
                 'ISBN' => '978-84-376-0494-7',
                 'title' => 'El libro de los expertos',
