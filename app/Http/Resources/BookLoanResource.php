@@ -21,8 +21,10 @@ class BookLoanResource extends JsonResource
             'assigned_at' => $this->resource->assigned_at,
             'returned_at' => $this->resource->returned_at,
             'request_user_id' => $this->resource->request_user_id,
+            'request_user_name' => $this->resource->request_user_name,
             'copies_number' => $this->resource->copies_number,
             'loan_user_id' => $this->resource->loan_user_id,
+            'loan_user_name' => $this->resource->loan_user_name,
         ];
     }
 }

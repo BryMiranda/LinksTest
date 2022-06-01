@@ -20,7 +20,9 @@ class CreateBookLoansTable extends Migration
             $table->date('assigned_at');
             $table->date('returned_at');
             $table->unsignedBigInteger('request_user_id');
+            $table->string('request_user_name',255);
             $table->unsignedBigInteger('loan_user_id');
+            $table->string('loan_user_name',255);
             $table->timestamps();
         });
     }
