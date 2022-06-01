@@ -60,19 +60,19 @@ class AppSeeder extends Seeder
 
         BookFeature::create([
             'book_id' => $bookOne->id,
-            'tag_id' => Tag::where('type', 'author')->first()->id,
+            'tag_id' => Tag::where('description', 'author')->first()->id,
             'value' => 'Juan Perez',
         ]);
 
         BookFeature::create([
             'book_id' => $bookOne->id,
-            'tag_id' => Tag::where('type', 'editorial')->first()->id,
+            'tag_id' => Tag::where('description', 'editorial')->first()->id,
             'value' => 'Editorial',
         ]);
 
         BookFeature::create([
             'book_id' => $bookTwo->id,
-            'tag_id' => Tag::where('type', 'themes')->first()->id,
+            'tag_id' => Tag::where('description', 'themes')->first()->id,
             'value' => 'Fantasia',
         ]);
     }

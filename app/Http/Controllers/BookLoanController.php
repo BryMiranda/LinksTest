@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\BookLoanResource;
 use App\Models\Book;
-use App\Models\BookFeature;
 use App\Models\BookLoan;
 use App\Models\User;
 use Illuminate\Http\Request;
