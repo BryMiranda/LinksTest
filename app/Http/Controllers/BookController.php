@@ -17,9 +17,9 @@ class BookController extends Controller
     {
         $books = Book::query()
             ->active()
-            /* ->searchByAuthor($request->author)
+            ->searchByAuthor($request->author)
             ->searchByEditorial($request->editorial)
-            ->searchByTheme($request->theme) */
+            ->searchByTheme($request->theme)
             ->paginate(10);
 
         return BookResource::collection($books);

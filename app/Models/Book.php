@@ -38,4 +38,34 @@ class Book extends Model
     {
         return $query->where('active', true);
     }
+
+    public function scopeSearchByAuthor($query, $author)
+    {
+        return $query->when($author, function ($query, $author) {
+            return $query->whereHas('bookFeatures', function ($query) use ($author) {
+                $query->where('type', 'author')
+                    ->where('value', $author);
+            });
+        });
+    }
+
+    public function scopeSearchByEditorial($query, $editorial)
+    {
+        return $query->when($editorial, function ($query, $editorial) {
+            return $query->whereHas('bookFeatures', function ($query) use ($editorial) {
+                $query->where('type', 'editorial')
+                    ->where('value', $editorial);
+            });
+        });
+    }
+
+    public function scopeSearchByTheme($query, $theme)
+    {
+        return $query->when($theme, function ($query, $theme) {
+            return $query->whereHas('bookFeatures', function ($query) use ($theme) {
+                $query->where('type', 'theme')
+                    ->where('value', $theme);
+            });
+        });
+    }
 }
