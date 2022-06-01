@@ -13,7 +13,7 @@ class CreateBookFeaturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('book_features', function (Blueprint $table) {
+        Schema::create('book_tag', function (Blueprint $table) {
             $table->unsignedBigInteger('book_id');
             $table->unsignedBigInteger('tag_id');
             $table->text('value');
@@ -27,6 +27,6 @@ class CreateBookFeaturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('book_features');
+        Schema::dropIfExists('book_tag');
     }
 }

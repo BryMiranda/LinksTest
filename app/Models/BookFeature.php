@@ -24,6 +24,4 @@ class BookFeature extends Model
     {
         return $this->belongsTo(Tag::class);
     }
-
-    
 }

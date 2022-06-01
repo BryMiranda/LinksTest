@@ -18,8 +18,13 @@ class Tag extends Model
         return $this->belongsToMany(BookFeature::class);
     }
 
+    public function books()
+    {
+        return $this->belongsToMany(Book::class);
+    }
+
     public function searchByDescription($description)
     {
         return $this->where('description', 'like', '%' . $description . '%')->get();
-    } 
+    }
 }

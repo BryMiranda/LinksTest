@@ -19,6 +19,11 @@ class Book extends Model
         'made_at'
     ];
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
     public function bookFeatures()
     {
         return $this->belongsToMany(BookFeature::class);
@@ -34,17 +39,16 @@ class Book extends Model
         return $this->hasMany(BookLoan::class);
     }
 
-    public function scopeActive($query)
+    public function scopeStatusActive($query)
     {
-        return $query->where('active', true);
+        return $query->where('status', true);
     }
 
     public function scopeSearchByAuthor($query, $author)
     {
         return $query->when($author, function ($query, $author) {
-            return $query->whereHas('bookFeatures', function ($query) use ($author) {
-                $query->where('type', 'author')
-                    ->where('value', $author);
+            return $query->whereHas('tags', function ($query) use ($author) {
+                $query->where('type', 'author');
             });
         });
     }
@@ -52,9 +56,8 @@ class Book extends Model
     public function scopeSearchByEditorial($query, $editorial)
     {
         return $query->when($editorial, function ($query, $editorial) {
-            return $query->whereHas('bookFeatures', function ($query) use ($editorial) {
-                $query->where('type', 'editorial')
-                    ->where('value', $editorial);
+            return $query->whereHas('tags', function ($query) use ($editorial) {
+                $query->where('type', 'editorial');
             });
         });
     }
@@ -62,9 +65,8 @@ class Book extends Model
     public function scopeSearchByTheme($query, $theme)
     {
         return $query->when($theme, function ($query, $theme) {
-            return $query->whereHas('bookFeatures', function ($query) use ($theme) {
-                $query->where('type', 'theme')
-                    ->where('value', $theme);
+            return $query->whereHas('tags', function ($query) use ($theme) {
+                $query->where('type', 'theme');
             });
         });
     }

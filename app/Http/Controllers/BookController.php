@@ -16,7 +16,7 @@ class BookController extends Controller
     public function index(Request $request)
     {
         $books = Book::query()
-            ->active()
+            ->statusActive()
             ->searchByAuthor($request->author)
             ->searchByEditorial($request->editorial)
             ->searchByTheme($request->theme)
